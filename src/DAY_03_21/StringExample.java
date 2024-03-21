@@ -24,7 +24,7 @@ public class StringExample {
         int readCount = System.in.read(buffer); // main에 throws Exception 추가
         System.out.println(buffer);
         String input = new String(buffer, 0, readCount);
-        System.out.println(input);
-
+        System.out.println(input.trim());
+        System.out.println("--------------");
     }
 }
