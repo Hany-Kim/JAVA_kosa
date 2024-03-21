@@ -19,6 +19,7 @@ public class FoodManager {
     static Scanner scanner = new Scanner(System.in);
 
     private static void insertFood() {
+        // 변수로 저장한 다음에
         System.out.print("이름:");
         String foodName = scanner.next();
         System.out.print("수량:");
@@ -28,6 +29,7 @@ public class FoodManager {
         System.out.print("설명:");
         String desc = scanner.next();
 
+        // 생성자에 추가
         foodList.add(new Food(foodName, count, expDate, desc));
     }//end insertFood()
 
@@ -35,8 +37,14 @@ public class FoodManager {
         System.out.println("----------------------------------------");
         System.out.println("이름\t수량\t유통기한\t설명");
         System.out.println("----------------------------------------");
+        /*
         for(int i=0; i<foodList.size(); i++) {
             Food food = foodList.get(i);
+            System.out.printf("%s\t%d\t%s\t%s\n", food.getFoodName(), food.getCount(),
+                    food.getExpDate(), food.getDesc());
+        }
+         */
+        for(Food food : foodList){
             System.out.printf("%s\t%d\t%s\t%s\n", food.getFoodName(), food.getCount(),
                     food.getExpDate(), food.getDesc());
         }
@@ -46,14 +54,15 @@ public class FoodManager {
     private static void updateFoodCount() {
         System.out.print("수정할 식자재 이름을 입력하세요:");
         String food = scanner.next();
-        for(Food foods : foodList) {
-            if(foods.getFoodName().equals(food)) {
+        for(int i=0; i<foodList.size(); i++) {
+            Food updateFood = foodList.get(i);
+            if(updateFood.getFoodName().equals(food)) {
                 System.out.print("수량을 입력하세요:");
                 int cnt = scanner.nextInt();
                 if(cnt==0) {
-                    foodList.remove(index);
+                    foodList.remove(i);
                 }else {
-                    foods.setCount(cnt);
+                    updateFood.setCount(cnt);
                 }
                 System.out.println(food + " 식자재가 수정되었습니다.");
                 return; //break; 하면 안 됨
