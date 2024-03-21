@@ -6,9 +6,9 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class Movie {
-    private String title;
-    private String genre;
-    private String director;
-    private String mainActor;
-    private String releaseDate;
+    private String title; // 제목
+    private String genre; // 장르
+    private String director; // 감독
+    private String mainActor; // 주연
+    private String releaseDate; // 개봉일
 }
