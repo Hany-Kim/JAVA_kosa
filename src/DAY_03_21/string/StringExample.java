@@ -1,4 +1,4 @@
-package DAY_03_21;
+package DAY_03_21.string;
 
 public class StringExample {
     public static void main(String[] args) throws Exception {
