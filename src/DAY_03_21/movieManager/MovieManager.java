@@ -231,27 +231,27 @@ public class MovieManager {
 
             switch (menu){
                 case "i":
-                    System.out.println(menuArr[parseInt(menu)] + "을 선택하셨습니다.");
+                    System.out.println(menuArr[1] + "을 선택하셨습니다.");
                     System.out.println();
                     insertMovie();
                     break;
                 case "u":
-                    System.out.println(menuArr[parseInt(menu)] + "을 선택하셨습니다.");
+                    System.out.println(menuArr[2] + "을 선택하셨습니다.");
                     System.out.println();
                     updateMovie();
                     break;
                 case "d":
-                    System.out.println(menuArr[parseInt(menu)] + "를 선택하셨습니다.");
+                    System.out.println(menuArr[3] + "를 선택하셨습니다.");
                     System.out.println();
                     deleteMovie();
                     break;
                 case "f":
-                    System.out.println(menuArr[parseInt(menu)] + "를 선택하셨습니다.");
+                    System.out.println(menuArr[4] + "를 선택하셨습니다.");
                     System.out.println();
                     findGenre();
                     break;
                 case "l":
-                    System.out.println(menuArr[parseInt(menu)] + "을 선택하셨습니다.");
+                    System.out.println(menuArr[5] + "을 선택하셨습니다.");
                     System.out.println();
                     printAllMovie();
                     break;
