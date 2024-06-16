@@ -2,6 +2,8 @@ package DAY_03_21.movieManager;
 
 import java.util.*;
 
+import static java.lang.Integer.parseInt;
+
 public class MovieManager {
     private static final String[] menuArr = {" ",
             "영화 생성",
@@ -23,23 +25,18 @@ public class MovieManager {
     private static void insertMovie(){
         System.out.println("영화 생성 모드 ==============================================");
         System.out.print("영화 제목 : ");
-//        String title = scanner.next();
         String title = scanner.nextLine();
 
         System.out.print("장르 : ");
-//        String genre = scanner.next();
         String genre = scanner.nextLine();
 
         System.out.print("감독 : ");
-//        String director = scanner.next();
         String director = scanner.nextLine();
 
         System.out.print("주연 : ");
-//        String mainActor = scanner.next();
         String mainActor = scanner.nextLine();
 
         System.out.print("개봉일 : ");
-//        String releaseDate = scanner.next();
         String releaseDate = scanner.nextLine();
 
         movieList.add(new Movie(title, genre, director, mainActor, releaseDate));
@@ -65,46 +62,47 @@ public class MovieManager {
                             else { System.out.print(" | [" + i + "] " + updateMenuArr[i]); }
                         }
                         scanner.nextLine();
-                        int menu = scanner.nextInt();
+                        System.out.print("메뉴 번호를 입력해주세요 : ");
+                        String menu = scanner.next();
 
                         switch (menu){
-                            case 1:
-                                System.out.println(updateMenuArr[menu] + " ----------------------");
-                                System.out.println("변경 전 " + updateMenuArr[menu] + " : " + movie.getGenre());
+                            case "1":
+                                System.out.println(updateMenuArr[parseInt(menu)] + " ----------------------");
+                                System.out.println("변경 전 " + updateMenuArr[parseInt(menu)] + " : " + movie.getGenre());
 
-                                System.out.print("변경할 [" + updateMenuArr[menu] + "]명을 입력해주세요 : ");
+                                System.out.print("변경할 [" + updateMenuArr[parseInt(menu)] + "]명을 입력해주세요 : ");
                                 String updateGenre = scanner.next();
                                 movie.setGenre(updateGenre);
-                                System.out.println("변경 후 " + updateMenuArr[menu] + " : " + movie.getGenre());
+                                System.out.println("변경 후 " + updateMenuArr[parseInt(menu)] + " : " + movie.getGenre());
                                 break;
-                            case 2:
-                                System.out.println(updateMenuArr[menu] + " ----------------------");
-                                System.out.println("변경 전 " + updateMenuArr[menu] + " : " + movie.getDirector());
+                            case "2":
+                                System.out.println(updateMenuArr[parseInt(menu)] + " ----------------------");
+                                System.out.println("변경 전 " + updateMenuArr[parseInt(menu)] + " : " + movie.getDirector());
 
-                                System.out.print("변경할 [" + updateMenuArr[menu] + "]명을 입력해주세요 : ");
+                                System.out.print("변경할 [" + updateMenuArr[parseInt(menu)] + "]명을 입력해주세요 : ");
                                 String updateDirector = scanner.next();
-                                movie.setGenre(updateDirector);
-                                System.out.println("변경 후 " + updateMenuArr[menu] + " : " + movie.getDirector());
+                                movie.setDirector(updateDirector);
+                                System.out.println("변경 후 " + updateMenuArr[parseInt(menu)] + " : " + movie.getDirector());
                                 break;
-                            case 3:
-                                System.out.println(updateMenuArr[menu] + " ----------------------");
-                                System.out.println("변경 전 " + updateMenuArr[menu] + " : " + movie.getMainActor());
+                            case "3":
+                                System.out.println(updateMenuArr[parseInt(menu)] + " ----------------------");
+                                System.out.println("변경 전 " + updateMenuArr[parseInt(menu)] + " : " + movie.getMainActor());
 
-                                System.out.print("변경할 [" + updateMenuArr[menu] + "]명을 입력해주세요 : ");
+                                System.out.print("변경할 [" + updateMenuArr[parseInt(menu)] + "]명을 입력해주세요 : ");
                                 String updateMainActor = scanner.next();
-                                movie.setGenre(updateMainActor);
-                                System.out.println("변경 후 " + updateMenuArr[menu] + " : " + movie.getMainActor());
+                                movie.setMainActor(updateMainActor);
+                                System.out.println("변경 후 " + updateMenuArr[parseInt(menu)] + " : " + movie.getMainActor());
                                 break;
-                            case 4:
-                                System.out.println(updateMenuArr[menu] + " ----------------------");
-                                System.out.println("변경 전 " + updateMenuArr[menu] + " : " + movie.getReleaseDate());
+                            case "4":
+                                System.out.println(updateMenuArr[parseInt(menu)] + " ----------------------");
+                                System.out.println("변경 전 " + updateMenuArr[parseInt(menu)] + " : " + movie.getReleaseDate());
 
-                                System.out.print("변경할 [" + updateMenuArr[menu] + "]을 입력해주세요 : ");
+                                System.out.print("변경할 [" + updateMenuArr[parseInt(menu)] + "]을 입력해주세요 : ");
                                 String updateReleaseDate = scanner.next();
-                                movie.setGenre(updateReleaseDate);
-                                System.out.println("변경 후 " + updateMenuArr[menu] + " : " + movie.getReleaseDate());
+                                movie.setReleaseDate(updateReleaseDate);
+                                System.out.println("변경 후 " + updateMenuArr[parseInt(menu)] + " : " + movie.getReleaseDate());
                                 break;
-                            case 5:
+                            case "5":
                                 System.out.println("<=== 수정을 종료하겠습니다. ===>");
                                 return;
                             default:
@@ -224,40 +222,40 @@ public class MovieManager {
         while(true){
             System.out.println();
             System.out.println("수행하실 메뉴를 선택해주세요.");
-            System.out.println("[1] " + menuArr[1] + " | [2] " + menuArr[2]
-                    + " | [3] " + menuArr[3] + " | [4] " + menuArr[4]
-                    + " | [5] " + menuArr[5] + " | [6] " + menuArr[6]);
+            System.out.println("[i] " + menuArr[1] + " | [u] " + menuArr[2]
+                    + " | [d] " + menuArr[3] + " | [f] " + menuArr[4]
+                    + " | [l] " + menuArr[5] + " | [q] " + menuArr[6]);
             System.out.print("메뉴 번호를 입력해주세요 : ");
-            int menu = scanner.nextInt();
+            String menu = scanner.next();
             scanner.nextLine();
 
             switch (menu){
-                case 1:
-                    System.out.println(menuArr[menu] + "을 선택하셨습니다.");
+                case "i":
+                    System.out.println(menuArr[1] + "을 선택하셨습니다.");
                     System.out.println();
                     insertMovie();
                     break;
-                case 2:
-                    System.out.println(menuArr[menu] + "을 선택하셨습니다.");
+                case "u":
+                    System.out.println(menuArr[2] + "을 선택하셨습니다.");
                     System.out.println();
                     updateMovie();
                     break;
-                case 3:
-                    System.out.println(menuArr[menu] + "를 선택하셨습니다.");
+                case "d":
+                    System.out.println(menuArr[3] + "를 선택하셨습니다.");
                     System.out.println();
                     deleteMovie();
                     break;
-                case 4:
-                    System.out.println(menuArr[menu] + "를 선택하셨습니다.");
+                case "f":
+                    System.out.println(menuArr[4] + "를 선택하셨습니다.");
                     System.out.println();
                     findGenre();
                     break;
-                case 5:
-                    System.out.println(menuArr[menu] + "을 선택하셨습니다.");
+                case "l":
+                    System.out.println(menuArr[5] + "을 선택하셨습니다.");
                     System.out.println();
                     printAllMovie();
                     break;
-                case 6:
+                case "q":
                     System.out.println("Han's 영화 관리 시스템을 종료합니다.");
                     System.out.println("BYE......");
                     System.exit(0);
